@@ -174,8 +174,10 @@ CONTAINS
       REAL,     DIMENSION( ims:ime, jms:jme )                    , &
                 INTENT(INOUT)   ::                                 &
                                                               QGH
+      REAL,     INTENT(IN   )               ::   CP,G,ROVCP,R,XLV
 
-      REAL,     INTENT(IN   )               ::   CP,G,ROVCP,R,XLV,DX
+      REAL,     DIMENSION( ims:ime, jms:jme )                    , &
+                INTENT(IN   )               ::                 DX
  
       REAL, OPTIONAL, DIMENSION( ims:ime, jms:jme )              , &
                 INTENT(OUT)     ::                  ck,cka,cd,cda
@@ -210,6 +212,11 @@ CONTAINS
       INTEGER ::  I,J
 
       DO J=jts,jte
+
+        DO i=its,ite
+           DX2D(i)=DX(i,j)
+        ENDDO
+
         DO i=its,ite
           dz8w1d(I) = dz8w(i,1,j)
         ENDDO
