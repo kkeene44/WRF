@@ -982,7 +982,8 @@
                    ( model_config_rec % ra_lw_physics(i) .EQ. RRTMG_LWSCHEME_FAST  ) ) .AND. &
                  ( ( model_config_rec % ra_sw_physics(i) .EQ. SWRADSCHEME          )   .OR.  &
                    ( model_config_rec % ra_sw_physics(i) .EQ. RRTMG_SWSCHEME       )   .OR.  &
-                   ( model_config_rec % ra_sw_physics(i) .EQ. RRTMG_SWSCHEME_FAST  ) ) ) ) THEN
+                   ( model_config_rec % ra_sw_physics(i) .EQ. RRTMG_SWSCHEME_FAST  ) ) ) .OR. &
+                   ( model_config_rec % ra_sw_physics(i) == 0 ) ) THEN
                ! This is OK, no way would a negation have been understandable!
             ELSE
                oops = oops + 1
